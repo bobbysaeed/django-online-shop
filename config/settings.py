@@ -32,7 +32,7 @@ SECRET_KEY = env.str("DJANGO_SECRET_KEY")
 # DEBUG = True
 DEBUG = env.bool('DJAGO_DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
