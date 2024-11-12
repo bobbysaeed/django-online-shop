@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
-from .models import Product, Commment
+from .models import Product, Comment
 from .forms import CommentForm
 
 
@@ -27,7 +27,7 @@ class ProductDetailView(generic.DetailView):
 
 
 class CommentCreateView(generic.CreateView):
-    model = Commment
+    model = Comment
     form_class = CommentForm
 
     def form_valid(self, form):

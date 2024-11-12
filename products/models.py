@@ -23,7 +23,7 @@ class ActiveCommentsManger(models.Manager):
         return super(ActiveCommentsManger, self).get_queryset().filter(active=True)
 
 
-class Commment(models.Model):
+class Comment(models.Model):
     RATINGS = [
         ('1', 'Very Bad'),
         ('2', 'Bad'),
@@ -34,9 +34,14 @@ class Commment(models.Model):
 
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name='comments',
+        verbose_name='comment author'
+        )
     body = models.TextField(verbose_name='nazar')
-    stars = models.CharField(max_length=10, choices=RATINGS)
+    stars = models.CharField(max_length=10, choices=RATINGS, verbose_name='rating')
 
     date_time_created = models.DateTimeField(auto_now_add=True)
     date_time_modified = models.DateTimeField(auto_now=True)
