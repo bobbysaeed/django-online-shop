@@ -18,6 +18,11 @@ class Product(models.Model):
         return reverse("product_detail", args=[self.pk])
 
 
+class ActiveCommentsManger(models.Manager):
+    def get_queryset(self):
+        return super(ActiveCommentsManger, self).get_queryset().filter(active=True)
+
+
 class Commment(models.Model):
     RATINGS = [
         ('1', 'Very Bad'),
@@ -38,7 +43,9 @@ class Commment(models.Model):
 
     active = models.BooleanField(default=True)
 
-
+    # Manager
+    objects = models.Manager()
+    active_comments_manager = ActiveCommentsManger()
 
     def get_absolute_url(self):
         return reverse("product_detail", args=[self.product.id])
