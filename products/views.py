@@ -1,7 +1,7 @@
 from typing import Any
 from django.forms import BaseModelForm
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
 from .models import Product, Commment
@@ -33,4 +33,8 @@ class CommentCreateView(generic.CreateView):
     def form_valid(self, form):
         obj = form.save(commit=False)
         obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product = get_object_or_404(Product, id=product_id)
+
         return super().form_valid(form)
