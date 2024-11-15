@@ -15,6 +15,7 @@ Django @ file:///home/conda/feedstock_root/build_artifacts/django_1698832743720/
 django-allauth==65.1.0
 django-cache-url==3.4.5
 django-crispy-forms @ file:///home/conda/feedstock_root/build_artifacts/django-crispy-forms_1697372012953/work
+django-rosetta==0.10.1
 docopt==0.6.2
 environs==11.0.0
 executing==2.0.1
@@ -43,6 +44,7 @@ pickleshare==0.7.5
 pillow==10.3.0
 pipreqs==0.5.0
 platformdirs==4.2.2
+polib==1.2.0
 prompt_toolkit==3.0.45
 ptyprocess==0.7.0
 pure-eval==0.2.2

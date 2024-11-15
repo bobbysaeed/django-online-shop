@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     'crispy_forms',
+    'rosetta',
     'crispy_bootstrap4',
     'allauth',
     'allauth.account',
@@ -136,7 +137,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'fa'
+LANGUAGE_CODE = 'fa-ir'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
 
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'

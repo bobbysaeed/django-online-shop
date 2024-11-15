@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# import rosetta
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('accounts/', include('allauth.urls')),
     path('products/', include('products.urls')),
+
+    # Rosetta
+    path('rosetta/', include('rosetta.urls')),
 ]
