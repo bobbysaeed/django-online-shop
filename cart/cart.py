@@ -38,10 +38,8 @@ class Cart:
 
     def remove(self, product):
         """
-        remove product from the cart
-
+            remove product from the cart
         """
-
         product_id = str(product.id)
 
         if product_id in self.cart:
@@ -50,6 +48,9 @@ class Cart:
 
 
     def __iter__(self):
+        """
+            iterate over items in cart
+        """
         product_ids = self.cart.keys()
         products = Product.objects.filter(id__in=product_ids)
 
