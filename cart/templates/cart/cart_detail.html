@@ -14,6 +14,7 @@
           <div class="col-lg-8 mb-md--50">
               <div class="row no-gutters">
                 <div class="col-12">
+                  {% if cart %}
                   <div class="table-content table-responsive">
                     <table class="table text-center">
                       <thead>
@@ -71,6 +72,10 @@
                       </tbody>
                     </table>
                   </div>
+                  {% else %}
+                    <p>{% trans "Cart is Empty! add products." %}</p>
+                    <a href="{% url "product_list" %}">{% trans "Let us shop" %}</a>
+                  {% endif %}
                 </div>
               </div>
               <div class="row no-gutters border-top pt--20 mt--20">
@@ -84,14 +89,14 @@
               <div class="cart-totals">
                 <h5 class="font-size-14 font-bold mb--15">مجموع</h5>
                 <div class="cart-calculator">
-                  <div class="cart-calculator__item">
+                  {% comment %} <div class="cart-calculator__item">
                     <div class="cart-calculator__item--head">
                       <span>مجموع</span>
                     </div>
                     <div class="cart-calculator__item--value">
                       <span>۳۴۶,۰۰۰ تومان</span>
                     </div>
-                  </div>
+                  </div> {% endcomment %}
                   <div class="cart-calculator__item order-total">
                     <div class="cart-calculator__item--head">
                       <span>جمع کل</span>
