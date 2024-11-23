@@ -150,11 +150,21 @@
                                                             {% trans "Write your comment" %}
                                                         </span>
                                                         <br>
-                                                        <form action="{% url "product_detail" product.id %}" method="POST">
-                                                            {% csrf_token %}
-                                                            {{ comment_form|crispy}}
-                                                            <input type="submit" value="{% trans "Submit" %}">
-                                                        </form>
+                                                        {% if user.is_authenticated %}
+                                                            <span class="reply-title pull-right">
+                                                                {% trans 'Write your comment' %}
+                                                            </span>
+                                                            <br>
+                                                            <form action="{% url 'comment_create' product.id %}" method="POST">
+                                                                {% csrf_token %}
+                                                                {{ comment_form|crispy }}
+                                                                <input type="submit" value="{% trans 'Submit' %}">
+                                                            </form>
+                                                        {% else %}
+                                                            <p>
+                                                                {% trans 'To write a comment please ' %}
+                                                                <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
+                                                        {% endif %}
 
                                                     </div>
                                                 </div>
